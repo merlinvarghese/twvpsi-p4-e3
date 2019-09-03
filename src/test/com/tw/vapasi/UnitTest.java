@@ -2,10 +2,7 @@ package com.tw.vapasi;
 
 import org.junit.jupiter.api.Test;
 
-import static com.tw.vapasi.Distance.cm;
-import static com.tw.vapasi.Distance.km;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UnitTest {
 
@@ -21,11 +18,15 @@ public class UnitTest {
     void expect100CM1M()
     {
         Unit unit = Unit.M;
+        assertEquals(100, unit.convertToBase(1));
 
-        double expected = unit.convertToBase(1);
+    }
 
-        assertEquals(100, expected);
-
+    @Test
+    void expect1KG1000GM()
+    {
+        Unit unit = Unit.KG;
+        assertEquals( 1000,unit.convertToBase(1));
     }
 
 

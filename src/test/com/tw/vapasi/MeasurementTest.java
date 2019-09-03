@@ -1,12 +1,12 @@
 package com.tw.vapasi;
 
 import org.junit.jupiter.api.Test;
-import static com.tw.vapasi.Distance.*;
+import static com.tw.vapasi.Measurement.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SuppressWarnings("ALL")
-class DistanceTest {
+@SuppressWarnings(value = "ALL")
+class MeasurementTest {
 
     @Test
     void expectSameReferenceEqualsTrue() {
@@ -31,12 +31,12 @@ class DistanceTest {
 
     @Test
     void expect100CMEquals1M() {
-        assertTrue(cm(100).equals(meter(1)));
+        assertTrue(cm(100).equals(m(1)));
     }
 
     @Test
     void expect1KMEquals1000M() {
-        assertTrue(meter(1000).equals(km(1)));
+        assertTrue(m(1000).equals(km(1)));
     }
 
     @Test
@@ -48,4 +48,16 @@ class DistanceTest {
     void expect1KMNotEquals1000CM() {
         assertFalse(cm(1000).equals(km(1)));
     }
+
+    @Test
+    void expect1KgEquals1000Gms() {
+        assertTrue(kg(1).equals(gm(1000)));
+    }
+
+    @Test
+    void expect1KGNotEquals1000M(){
+        assertFalse(kg(1).equals(m(1000)));
+    }
+
+
 }
