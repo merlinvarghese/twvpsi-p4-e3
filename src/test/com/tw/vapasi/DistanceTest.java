@@ -11,6 +11,7 @@ class DistanceTest {
     @Test
     void expectSameReferenceEqualsTrue() {
         assertTrue(km(1).equals(km(1)));
+
     }
 
     @Test

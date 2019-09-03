@@ -4,8 +4,8 @@ import java.util.Objects;
 
 //Understand units of distance
 class Distance {
-    public static final int M_IN_CM = 100;
-    public static final int KM_IN_CM = 100000;
+    private static final int M_IN_CM = 100;
+    private static final int KM_IN_CM = 100000;
 
     private final double value;
     private final Unit unit;
@@ -23,26 +23,9 @@ class Distance {
         return new Distance(magnitude, Unit.M);
     }
 
-    enum Unit {
-        KM,
-        CM,
-        M
-    }
-
-    Distance(double value, Unit unit) {
+    private Distance(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
-    }
-
-    private double toCM() {
-        switch (this.unit) {
-            case M:
-                return this.value * M_IN_CM;
-            case KM:
-                return this.value * KM_IN_CM;
-            default:
-                return this.value;
-        }
     }
 
     @Override
@@ -52,13 +35,13 @@ class Distance {
         if ((otherDistance == null) || (otherDistance.getClass() != this.getClass()))
             return false;
 
-        Distance anotherMeasurement = (Distance) otherDistance;
-        return this.toCM() == anotherMeasurement.toCM();
+        Distance other = (Distance)otherDistance;
+        return this.unit.convertToBase(value) == other.unit.convertToBase(value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.value, this.unit);
+        return Objects.hash(this.value);
     }
 
 }
