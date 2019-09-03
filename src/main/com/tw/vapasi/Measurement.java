@@ -2,7 +2,7 @@ package com.tw.vapasi;
 
 import java.util.Objects;
 
-//Understand units of distance
+//Understand various measurement units
 class Measurement {
 
     private final double value;
