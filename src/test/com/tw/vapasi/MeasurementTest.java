@@ -1,9 +1,9 @@
 package com.tw.vapasi;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static com.tw.vapasi.Measurement.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings(value = "ALL")
 class MeasurementTest {
@@ -57,6 +57,30 @@ class MeasurementTest {
     @Test
     void expect1KGNotEquals1000M(){
         assertFalse(kg(1).equals(m(1000)));
+    }
+
+    @Test
+    void expect200CWhenAdding100CMAnd2M() throws CannotAddException{
+        assertEquals(300, cm(100).add(m(2)));
+
+    }
+
+    @Test
+    void expectDoesNotAllowOfAdditionOfDifferentTypes()
+    {
+        Measurement kg1 = kg(1);
+        Measurement m100 = m(100);
+
+        try
+        {
+            kg(1).add(m100);
+            Assertions.fail("It has thrown an exception");
+        }
+        catch (CannotAddException e)
+        {
+            //
+
+        }
     }
 
 

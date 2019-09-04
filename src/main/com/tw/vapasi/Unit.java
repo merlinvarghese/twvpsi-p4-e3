@@ -9,6 +9,7 @@ public class Unit {
     static Unit KM = new Unit(100000);
     static Unit GM = new Unit(1);
     static Unit KG = new Unit(1000);
+
     private final int conversionFactor;
 
     Unit(int conversionFactor) {
