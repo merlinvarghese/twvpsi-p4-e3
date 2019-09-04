@@ -66,11 +66,12 @@ class Measurement {
         return !this.type.equals(other.type);
     }
 
-    double add(Measurement measurementOther) throws CannotAddException {
+    Measurement add(Measurement measurementOther) throws CannotAddException {
 
         if (isDifferentType(measurementOther))
             throw new CannotAddException();
-        return this.unit.convertToBase(this.value) + measurementOther.unit.convertToBase(measurementOther.value);
+        double baseTotal =  this.unit.convertToBase(this.value) + measurementOther.unit.convertToBase(measurementOther.value);
+        return new Measurement(this.unit.convertFromBase(baseTotal),this.unit,this.type);
 
     }
 

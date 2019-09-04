@@ -78,10 +78,18 @@ class MeasurementTest {
         }
         catch (CannotAddException e)
         {
-            //
+
 
         }
     }
+
+    @Test
+    void expect2_2KGWhenAdding2KGAnd200GM() throws CannotAddException
+    {
+        assertEquals(2.2, kg(2).add(gm(200)));
+    }
+
+
 
 
 }

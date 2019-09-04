@@ -10,6 +10,7 @@ public class Unit {
     static Unit GM = new Unit(1);
     static Unit KG = new Unit(1000);
 
+
     private final int conversionFactor;
 
     Unit(int conversionFactor) {
@@ -18,7 +19,14 @@ public class Unit {
 
    double convertToBase(double value)
    {
+
        return value * conversionFactor;
    }
+
+   double convertFromBase(double value)
+   {
+       return convertToBase(value);
+   }
+
 
 }
